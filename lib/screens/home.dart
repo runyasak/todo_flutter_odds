@@ -31,6 +31,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   children: [
                     _titleBar(),
+                    Container(
+                      child: ListView.builder(
+                        padding: EdgeInsets.zero,
+                        itemCount: 2,
+                        shrinkWrap: true,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            contentPadding: EdgeInsets.zero,
+                            leading: Icon(Icons.check_circle_outline_rounded),
+                            title: Text('อ่านหนังสือก่อนนอน'),
+                            subtitle: Text("เล่ม นอนอย่างมีประสิทธิภาพ"),
+                            trailing: IconButton(
+                              icon: Icon(Icons.more_vert),
+                              onPressed: () {},
+                            ),
+                          );
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
