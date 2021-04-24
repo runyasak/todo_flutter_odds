@@ -65,7 +65,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (context, index) {
                           return ListTile(
                             contentPadding: EdgeInsets.zero,
-                            leading: Icon(Icons.check_circle_outline_rounded),
+                            leading: todos[index].complete
+                                ? Icon(
+                                    Icons.check_circle_outline_rounded,
+                                    color: Colors.green,
+                                  )
+                                : Icon(
+                                    Icons.panorama_fish_eye,
+                                    color: Colors.purple.shade200,
+                                  ),
                             title: Text(todos[index].topic),
                             subtitle: Text(todos[index].msg),
                             trailing: IconButton(
