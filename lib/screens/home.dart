@@ -53,7 +53,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       actionName: 'save',
                       action: () => Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => NewTodoScreen(),
+                          builder: (context) => NewTodoScreen(
+                            beforePop: () => setTodo(),
+                          ),
                         ),
                       ),
                     ),

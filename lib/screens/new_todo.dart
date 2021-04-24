@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:todo/models/todo_model.dart';
+import 'package:todo/services/mock_todo.dart';
 import 'package:todo/widgets/title_bar.dart';
 
 class NewTodoScreen extends StatefulWidget {
+  NewTodoScreen({this.beforePop});
+
+  final Function()? beforePop;
+
   @override
   _NewTodoScreenState createState() => _NewTodoScreenState();
 }
@@ -42,9 +48,22 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                     children: [
                       TitleBar(
                         actionName: 'save',
-                        action: () {
-                          print(topicController.text);
-                          print(todoController.text);
+                        action: () async {
+                          if (topicController.text.isEmpty ||
+                              todoController.text.isEmpty) {
+                            return;
+                          }
+
+                          await MockTodo.addTodo(
+                            Todo(
+                              topic: topicController.text,
+                              msg: todoController.text,
+                              complete: false,
+                            ),
+                          );
+
+                          widget.beforePop!();
+                          Navigator.of(context).pop();
                         },
                       ),
                       TextField(

@@ -28,4 +28,9 @@ class MockTodo {
     await Future.delayed(Duration(milliseconds: 200));
     todos.removeAt(index);
   }
+
+  static Future<void> addTodo(Todo todo) async {
+    await Future.delayed(Duration(milliseconds: 200));
+    todos.add(todo);
+  }
 }
