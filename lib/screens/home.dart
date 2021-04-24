@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todo/models/todo_model.dart';
 import 'package:todo/screens/new_todo.dart';
+import 'package:todo/services/mock_todo.dart';
 import 'package:todo/widgets/title_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,6 +10,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Todo> todos = [];
+
+  setTodo() async {
+    final _todos = await MockTodo.getTodo();
+    setState(() {
+      todos = _todos;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.setTodo();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,14 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
-                        itemCount: 2,
+                        itemCount: todos.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return ListTile(
                             contentPadding: EdgeInsets.zero,
                             leading: Icon(Icons.check_circle_outline_rounded),
-                            title: Text('อ่านหนังสือก่อนนอน'),
-                            subtitle: Text("เล่ม นอนอย่างมีประสิทธิภาพ"),
+                            title: Text(todos[index].topic),
+                            subtitle: Text(todos[index].msg),
                             trailing: IconButton(
                               icon: Icon(Icons.more_vert),
                               onPressed: () {},
