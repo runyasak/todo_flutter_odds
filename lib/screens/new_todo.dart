@@ -35,6 +35,7 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                   child: Column(
                     children: [
                       TextField(
+                        cursorColor: Colors.grey.shade600,
                         decoration: InputDecoration(
                           labelText: 'Topic',
                           labelStyle: TextStyle(
@@ -53,6 +54,35 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                             borderRadius: BorderRadius.circular(16),
                             borderSide: BorderSide(
                               color: Colors.grey.shade600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(top: 16),
+                        child: TextField(
+                          cursorColor: Colors.grey.shade600,
+                          maxLines: 8,
+                          decoration: InputDecoration(
+                            labelText: 'Todo...',
+                            labelStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            alignLabelWithHint: true,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                              borderSide: BorderSide(
+                                color: Colors.grey.shade600,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(16),
+                              borderSide: BorderSide(
+                                color: Colors.grey.shade600,
+                              ),
                             ),
                           ),
                         ),
