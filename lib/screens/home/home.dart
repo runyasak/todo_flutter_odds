@@ -33,11 +33,9 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     TitleBar(
                       actionName: 'new',
-                      action: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => NewTodoScreen(
-                            beforePop: () => _homeController.setTodo(),
-                          ),
+                      action: () => Get.to(
+                        NewTodoScreen(
+                          beforePop: _homeController.setTodo,
                         ),
                       ),
                     ),
