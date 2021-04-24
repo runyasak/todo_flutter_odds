@@ -16,7 +16,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     _homeController = Get.put(HomeController());
-    _homeController.setTodo();
   }
 
   @override

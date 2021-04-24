@@ -8,6 +8,12 @@ class HomeController extends GetxController {
   List<Todo> get todos => _todos;
   set todos(value) => _todos.value = [...value];
 
+  @override
+  onInit() {
+    super.onInit();
+    setTodo();
+  }
+
   Future<void> setTodo() async {
     final result = await MockTodo.getTodo();
     todos = result;
