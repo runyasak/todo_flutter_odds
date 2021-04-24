@@ -32,7 +32,24 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                   children: [],
                 ),
               ),
-            )
+            ),
+            Positioned(
+              top: MediaQuery.of(context).padding.top,
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  top: 8,
+                ),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.chevron_left,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ),
+            ),
           ],
         ),
       ),
