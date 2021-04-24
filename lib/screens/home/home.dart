@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo/screens/home/home_controller.dart';
-import 'package:todo/screens/new_todo.dart';
 import 'package:todo/widgets/title_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,11 +32,8 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     TitleBar(
                       actionName: 'new',
-                      action: () => Get.to(
-                        NewTodoScreen(
-                          beforePop: _homeController.setTodo,
-                        ),
-                      ),
+                      action: () => Get.toNamed('/new-todo')!
+                          .whenComplete(() => _homeController.setTodo()),
                     ),
                     Obx(
                       () => Container(

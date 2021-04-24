@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:todo/models/todo_model.dart';
 import 'package:todo/services/mock_todo.dart';
 import 'package:todo/widgets/title_bar.dart';
 
 class NewTodoScreen extends StatefulWidget {
-  NewTodoScreen({this.beforePop});
-
-  final Function()? beforePop;
-
   @override
   _NewTodoScreenState createState() => _NewTodoScreenState();
 }
@@ -62,8 +59,7 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                             ),
                           );
 
-                          widget.beforePop!();
-                          Navigator.of(context).pop();
+                          Get.back();
                         },
                       ),
                       TextField(
