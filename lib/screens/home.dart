@@ -76,13 +76,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                             title: Text(todos[index].topic),
                             subtitle: Text(todos[index].msg),
-                            trailing: IconButton(
+                            trailing: PopupMenuButton(
+                              itemBuilder: (context) => [
+                                PopupMenuItem(
+                                  value: 'delete',
+                                  child: Text('Delete'),
+                                ),
+                              ],
+                              onSelected: (value) async {
+                                if (value == 'delete') {
+                                  await MockTodo.deleteTodo(index);
+                                  await setTodo();
+                                }
+                              },
                               icon: Icon(Icons.more_vert),
-                              onPressed: () {},
                             ),
                             onTap: () async {
                               await MockTodo.completeTodo(index);
-                              await this.setTodo();
+                              await setTodo();
                             },
                           );
                         },
