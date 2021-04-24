@@ -54,16 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    GetBuilder<HomeController>(
-                      builder: (controller) => Container(
+                    Obx(
+                      () => Container(
                         child: ListView.builder(
                           padding: EdgeInsets.zero,
-                          itemCount: controller.todos.length,
+                          itemCount: _homeController.todos.length,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return ListTile(
                               contentPadding: EdgeInsets.zero,
-                              leading: controller.todos[index].complete
+                              leading: _homeController.todos[index].complete
                                   ? Icon(
                                       Icons.check_circle_outline_rounded,
                                       color: Colors.green,
@@ -72,8 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Icons.panorama_fish_eye,
                                       color: Colors.purple.shade200,
                                     ),
-                              title: Text(controller.todos[index].topic),
-                              subtitle: Text(controller.todos[index].msg),
+                              title: Text(_homeController.todos[index].topic),
+                              subtitle: Text(_homeController.todos[index].msg),
                               trailing: PopupMenuButton(
                                 itemBuilder: (context) => [
                                   PopupMenuItem(
@@ -84,20 +84,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onSelected: (value) async {
                                   if (value == 'delete') {
                                     await MockTodo.deleteTodo(index);
-                                    await controller.setTodo();
+                                    await _homeController.setTodo();
                                   }
                                 },
                                 icon: Icon(Icons.more_vert),
                               ),
                               onTap: () async {
                                 await MockTodo.completeTodo(index);
-                                await controller.setTodo();
+                                await _homeController.setTodo();
                               },
                             );
                           },
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
