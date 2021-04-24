@@ -4,22 +4,11 @@ import 'package:todo/screens/home/home_controller.dart';
 import 'package:todo/screens/new_todo.dart';
 import 'package:todo/widgets/title_bar.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late HomeController _homeController;
-
-  @override
-  void initState() {
-    super.initState();
-    _homeController = Get.put(HomeController());
-  }
-
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    HomeController _homeController = Get.put(HomeController());
+
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
