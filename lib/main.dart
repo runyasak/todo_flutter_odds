@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:todo/screens/home/home.dart';
+import 'package:todo/screens/home/home_controller.dart';
 import 'package:todo/screens/new_todo.dart';
 
 void main() {
@@ -9,7 +11,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -19,10 +20,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: GoogleFonts.kanit().fontFamily,
       ),
-      home: HomeScreen(),
+      initialRoute: '/home',
       getPages: [
-        GetPage(name: '/home', page: () => HomeScreen()),
-        GetPage(name: '/new-todo', page: () => NewTodoScreen())
+        GetPage(
+          name: '/home',
+          page: () => HomeScreen(),
+          binding: BindingsBuilder(() {
+            Get.put(HomeController());
+          }),
+        ),
+        GetPage(
+          name: '/new-todo',
+          page: () => NewTodoScreen(),
+        ),
       ],
     );
   }

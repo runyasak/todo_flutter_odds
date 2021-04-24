@@ -3,11 +3,9 @@ import 'package:get/get.dart';
 import 'package:todo/screens/home/home_controller.dart';
 import 'package:todo/widgets/title_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
-    HomeController _homeController = Get.put(HomeController());
-
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -33,18 +31,18 @@ class HomeScreen extends StatelessWidget {
                     TitleBar(
                       actionName: 'new',
                       action: () => Get.toNamed('/new-todo')!
-                          .whenComplete(() => _homeController.setTodo()),
+                          .whenComplete(() => controller.setTodo()),
                     ),
                     Obx(
                       () => Container(
                         child: ListView.builder(
                           padding: EdgeInsets.zero,
-                          itemCount: _homeController.todos.length,
+                          itemCount: controller.todos.length,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return ListTile(
                               contentPadding: EdgeInsets.zero,
-                              leading: _homeController.todos[index].complete
+                              leading: controller.todos[index].complete
                                   ? Icon(
                                       Icons.check_circle_outline_rounded,
                                       color: Colors.green,
@@ -53,8 +51,8 @@ class HomeScreen extends StatelessWidget {
                                       Icons.panorama_fish_eye,
                                       color: Colors.purple.shade200,
                                     ),
-                              title: Text(_homeController.todos[index].topic),
-                              subtitle: Text(_homeController.todos[index].msg),
+                              title: Text(controller.todos[index].topic),
+                              subtitle: Text(controller.todos[index].msg),
                               trailing: PopupMenuButton(
                                 itemBuilder: (context) => [
                                   PopupMenuItem(
@@ -64,14 +62,14 @@ class HomeScreen extends StatelessWidget {
                                 ],
                                 onSelected: (value) {
                                   if (value == 'delete') {
-                                    _homeController.deleteTodo(index);
+                                    controller.deleteTodo(index);
                                   }
                                 },
                                 icon: Icon(Icons.more_vert),
                               ),
                               onTap: () async {
-                                await _homeController.completeTodo(index);
-                                await _homeController.setTodo();
+                                await controller.completeTodo(index);
+                                await controller.setTodo();
                               },
                             );
                           },
