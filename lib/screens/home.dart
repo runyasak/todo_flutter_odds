@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/screens/new_todo.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -72,7 +73,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () => Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => NewTodoScreen())),
           child: Text(
             'save',
             style: TextStyle(
