@@ -37,8 +37,23 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Topic',
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16),
+                            borderSide: BorderSide(
+                              color: Colors.grey.shade600,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16),
+                            borderSide: BorderSide(
+                              color: Colors.grey.shade600,
+                            ),
                           ),
                         ),
                       ),
