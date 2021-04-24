@@ -81,10 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Text('Delete'),
                                   ),
                                 ],
-                                onSelected: (value) async {
+                                onSelected: (value) {
                                   if (value == 'delete') {
-                                    await MockTodo.deleteTodo(index);
-                                    await _homeController.setTodo();
+                                    _homeController.deleteTodo(index);
                                   }
                                 },
                                 icon: Icon(Icons.more_vert),
