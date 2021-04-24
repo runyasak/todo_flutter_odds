@@ -8,19 +8,19 @@ class HomeScreen extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height,
+        height: Get.height,
         child: Stack(
           children: [
             Image.asset(
               'assets/images/cover.png',
-              width: MediaQuery.of(context).size.width,
+              width: Get.width,
               fit: BoxFit.cover,
             ),
             Positioned(
               bottom: 0,
               child: Container(
-                height: MediaQuery.of(context).size.height / 1.7,
-                width: MediaQuery.of(context).size.width,
+                height: Get.height / 1.7,
+                width: Get.width,
                 padding: EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: Colors.white,
