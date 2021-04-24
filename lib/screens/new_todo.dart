@@ -6,6 +6,11 @@ class NewTodoScreen extends StatefulWidget {
 }
 
 class _NewTodoScreenState extends State<NewTodoScreen> {
+  TextEditingController topicController = TextEditingController();
+  TextEditingController todoController = TextEditingController();
+  FocusNode topicFocusNode = FocusNode();
+  FocusNode todoFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +40,8 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                   child: Column(
                     children: [
                       TextField(
+                        controller: topicController,
+                        focusNode: topicFocusNode,
                         cursorColor: Colors.grey.shade600,
                         decoration: InputDecoration(
                           labelText: 'Topic',
@@ -61,6 +68,8 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                       Container(
                         margin: EdgeInsets.only(top: 16),
                         child: TextField(
+                          controller: todoController,
+                          focusNode: todoFocusNode,
                           cursorColor: Colors.grey.shade600,
                           maxLines: 8,
                           decoration: InputDecoration(
