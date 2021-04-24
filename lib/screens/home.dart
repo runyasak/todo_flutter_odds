@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo/screens/new_todo.dart';
+import 'package:todo/widgets/title_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -31,7 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: Column(
                   children: [
-                    _titleBar(),
+                    TitleBar(
+                      actionName: 'save',
+                      action: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => NewTodoScreen(),
+                        ),
+                      ),
+                    ),
                     Container(
                       child: ListView.builder(
                         padding: EdgeInsets.zero,
@@ -61,30 +69,30 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Row _titleBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          'Todo',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        TextButton(
-          onPressed: () => Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => NewTodoScreen())),
-          child: Text(
-            'save',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 16,
-              decoration: TextDecoration.underline,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+  // Row _titleBar() {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //     children: [
+  //       Text(
+  //         'Todo',
+  //         style: TextStyle(
+  //           fontSize: 24,
+  //           fontWeight: FontWeight.bold,
+  //         ),
+  //       ),
+  //       TextButton(
+  //         onPressed: () => Navigator.of(context)
+  //             .push(MaterialPageRoute(builder: (context) => NewTodoScreen())),
+  //         child: Text(
+  //           'save',
+  //           style: TextStyle(
+  //             color: Colors.black,
+  //             fontSize: 16,
+  //             decoration: TextDecoration.underline,
+  //           ),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 }

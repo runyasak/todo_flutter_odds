@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/widgets/title_bar.dart';
 
 class NewTodoScreen extends StatefulWidget {
   @override
@@ -39,6 +40,13 @@ class _NewTodoScreenState extends State<NewTodoScreen> {
                   ),
                   child: Column(
                     children: [
+                      TitleBar(
+                        actionName: 'save',
+                        action: () {
+                          print(topicController.text);
+                          print(todoController.text);
+                        },
+                      ),
                       TextField(
                         controller: topicController,
                         focusNode: topicFocusNode,
