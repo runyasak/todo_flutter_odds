@@ -80,6 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               icon: Icon(Icons.more_vert),
                               onPressed: () {},
                             ),
+                            onTap: () async {
+                              await MockTodo.completeTodo(index);
+                              await this.setTodo();
+                            },
                           );
                         },
                       ),

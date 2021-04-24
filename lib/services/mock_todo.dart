@@ -18,4 +18,9 @@ class MockTodo {
     await Future.delayed(Duration(milliseconds: 200));
     return todos;
   }
+
+  static Future<void> completeTodo(int index) async {
+    await Future.delayed(Duration(milliseconds: 200));
+    todos[index].complete = !todos[index].complete;
+  }
 }
