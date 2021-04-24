@@ -28,12 +28,42 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(32),
                 ),
-                child: Text('Todo'),
+                child: Column(
+                  children: [
+                    _titleBar(),
+                  ],
+                ),
               ),
             )
           ],
         ),
       ),
+    );
+  }
+
+  Row _titleBar() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Todo',
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            'save',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 16,
+              decoration: TextDecoration.underline,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
