@@ -68,31 +68,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  // Row _titleBar() {
-  //   return Row(
-  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-  //     children: [
-  //       Text(
-  //         'Todo',
-  //         style: TextStyle(
-  //           fontSize: 24,
-  //           fontWeight: FontWeight.bold,
-  //         ),
-  //       ),
-  //       TextButton(
-  //         onPressed: () => Navigator.of(context)
-  //             .push(MaterialPageRoute(builder: (context) => NewTodoScreen())),
-  //         child: Text(
-  //           'save',
-  //           style: TextStyle(
-  //             color: Colors.black,
-  //             fontSize: 16,
-  //             decoration: TextDecoration.underline,
-  //           ),
-  //         ),
-  //       ),
-  //     ],
-  //   );
-  // }
 }
