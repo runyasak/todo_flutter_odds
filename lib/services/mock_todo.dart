@@ -15,22 +15,18 @@ class MockTodo {
   ];
 
   static Future<List<Todo>> getTodo() async {
-    await Future.delayed(Duration(milliseconds: 200));
     return todos;
   }
 
   static Future<void> completeTodo(int index) async {
-    await Future.delayed(Duration(milliseconds: 200));
     todos[index].complete = !todos[index].complete;
   }
 
   static Future<void> deleteTodo(int index) async {
-    await Future.delayed(Duration(milliseconds: 200));
     todos.removeAt(index);
   }
 
   static Future<void> addTodo(Todo todo) async {
-    await Future.delayed(Duration(milliseconds: 200));
     todos.add(todo);
   }
 }
